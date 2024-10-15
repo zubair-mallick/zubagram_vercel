@@ -26,7 +26,7 @@ const Signup = () => {
         e.preventDefault();
         try {
             setLoading(true);
-            const res = await axios.post('http://localhost:3000/api/v1/user/register', input, {
+            const res = await axios.post('zubagram-vercel-4d4f.vercel.app/api/v1/user/register', input, {
                 headers: {
                     'Content-Type': 'application/json'
                 },

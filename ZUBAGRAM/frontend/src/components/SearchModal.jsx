@@ -9,7 +9,7 @@ const SearchModal = ({ isOpen, onClose }) => {
 
     const handleSearch = async () => {
         try {
-            const res = await axios.get(`http://localhost:3000/api/v1/user/search/${searchQuery}`, {
+            const res = await axios.get(`zubagram-vercel-4d4f.vercel.app/api/v1/user/search/${searchQuery}`, {
                 withCredentials: true
             });
             if (res.data.success) {

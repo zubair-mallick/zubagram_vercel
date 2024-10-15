@@ -20,7 +20,7 @@ const ChatPage = () => {
 
     const sendMessageHandler = async (receiverId) => {
         try {
-            const res = await axios.post(`http://localhost:3000/api/v1/message/send/${receiverId}`, { textMessage }, {
+            const res = await axios.post(`zubagram-vercel-4d4f.vercel.app/api/v1/message/send/${receiverId}`, { textMessage }, {
                 headers: {
                     'Content-Type': 'application/json'
                 },
@@ -39,7 +39,7 @@ const ChatPage = () => {
         const fetchSelectedUser = async () => {
             try {
                 if (id) {
-                    const res = await axios.get(`http://localhost:3000/api/v1/user/${id}/profile`, {
+                    const res = await axios.get(`zubagram-vercel-4d4f.vercel.app/api/v1/user/${id}/profile`, {
                         withCredentials: true
                     });
                     dispatch(setSelectedUser(res.data.user));

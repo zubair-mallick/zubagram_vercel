@@ -9,7 +9,7 @@ const useGetSuggestedUsers = () => {
     useEffect(() => {
         const fetchSuggestedUsers = async () => {
             try {
-                const res = await axios.get('http://localhost:3000/api/v1/user/suggested', { withCredentials: true });
+                const res = await axios.get('zubagram-vercel-4d4f.vercel.app/api/v1/user/suggested', { withCredentials: true });
                 if (res.data.success) { 
                     dispatch(setSuggestedUsers(res.data.users));
                 }

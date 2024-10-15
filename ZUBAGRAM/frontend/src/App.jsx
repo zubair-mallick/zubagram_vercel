@@ -55,7 +55,7 @@ function App() {
 
   useEffect(() => {
     if (user) {
-      const socketio = io('http://localhost:3000', {
+      const socketio = io('zubagram-vercel-4d4f.vercel.app', {
         query: {
           userId: user?._id
         },
