@@ -8,46 +8,46 @@ import postRoute from "./routes/post.route.js";
 import messageRoute from "./routes/message.route.js";
 import { app, server } from "./socket/socket.js";
 import path from "path";
- 
+
 dotenv.config();
 
 const PORT = process.env.PORT || 3000;
-
 const __dirname = path.resolve();
 
-//middlewares
+// Middlewares
 app.use(express.json());
 app.use(cookieParser());
 app.use(urlencoded({ extended: true }));
 
+// CORS options
 const corsOptions = {
-    origin: (origin, callback) => {
-      // Allow requests from any origin dynamically
-      if (!origin || [process.env.URL, "http://localhost:5173"].includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
-    methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE", "OPTIONS"],  // Allow all common methods
-    allowedHeaders: [
-      "Content-Type", 
-      "Authorization", 
-      "Origin", 
-      "X-Requested-With", 
-      "Accept", 
-      "Access-Control-Allow-Headers"
-    ],  // Allow all custom and common headers
-    credentials: true,  // Allow cookies and credentials
-    preflightContinue: false,  // If set to true, OPTIONS requests won't end the response cycle (useful if you handle preflight)
-    optionsSuccessStatus: 204,  // Some legacy browsers (IE) choke on 204, so you can return 200 if needed
-  };
-  
-  app.use(cors(corsOptions));
-  
+  origin: (origin, callback) => {
+    const allowedOrigins = [process.env.URL, "http://127.0.0.1:5173","http://localhost:5173","https://zubagram-vercel-4tkk.vercel.app"];
+    // Allow requests from any origin dynamically or allowed origins
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE", "OPTIONS"], // Common methods
+  allowedHeaders: [
+    "Content-Type",
+    "Authorization",
+    "Origin",
+    "X-Requested-With",
+    "Accept",
+    "Access-Control-Allow-Headers",
+  ], // Custom headers allowed
+  credentials: true, // Allow cookies and credentials
+  preflightContinue: false, // OPTIONS requests handled automatically
+  optionsSuccessStatus: 204, // For legacy browsers
+};
+
+// Use CORS middleware globally
 app.use(cors(corsOptions));
 
-// Set headers globally for all routes
+// Set global headers for all routes (handled after CORS)
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", req.headers.origin || process.env.URL);
   res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,PATCH,OPTIONS");
@@ -59,17 +59,18 @@ app.use((req, res, next) => {
   next();
 });
 
-// yha pr apni api ayengi
+// API routes
 app.use("/api/v1/user", userRoute);
 app.use("/api/v1/post", postRoute);
 app.use("/api/v1/message", messageRoute);
 
+// Serve static files (if using frontend)
 // app.use(express.static(path.join(__dirname, "/frontend/dist")));
 // app.get("*", (req, res) => {
-//     res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"));
+//   res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"));
 // });
 
 server.listen(PORT, () => {
-    connectDB();
-    console.log(`Server listen at port ${PORT}`);
+  connectDB();
+  console.log(`Server is listening at port ${PORT}`);
 });
