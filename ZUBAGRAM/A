@@ -1,0 +1,83 @@
+
+|-components
+       |-UI
+            |-avatar.jsx
+
+            |-badge.jsx
+
+            |-button.jsx
+
+            |-dialog.jsx
+
+            |-input.jsx
+ 
+            |-label.jsx
+
+            |-popover.jsx
+ 
+            |-select.jsx
+
+            |-sonner.jsx
+
+            |-textarea.jsx
+ 
+           
+       |-ChatPage.jsx
+
+       |-Comment.jsx
+
+       |-CommentDialog.jsx
+
+       |-CreatePost.jsx
+
+       |-EditProfile.jsx
+
+       |-Feed.jsx
+
+       |-Home.jsx
+
+       |-LeftSidebar.jsx
+
+       |-Login.jsx
+
+       |-MainLayout.jsx
+
+       |-Messages.jsx
+
+       |-Post.jsx
+
+       |-Posts.jsx
+
+       |-Profile.jsx
+
+       |-ProtectedRoutes.jsx
+
+       |-RightSidebar.jsx
+
+       |-Signup.jsx
+
+       |-SuggestedUsers.jsx      
+|-hooks
+       |-useGetAllMessage.jsx
+
+       |-useGetAllPost.jsx
+
+       |-useGetRTM.jsx
+
+       |-useGetSuggestedUsers.jsx
+
+       |-useGetUserProfile.jsx
+|-lib
+       |-utils.js
+|-redux
+       |-authSlice.js
+
+       |-chatSlice.js
+
+       |-postSlice.js
+
+       |-rtnSlice.js
+
+       |-socketSlice.js
+
+       |-store.js
