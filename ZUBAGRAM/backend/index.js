@@ -49,7 +49,7 @@ app.use(cors(corsOptions));
 
 // Set global headers for all routes (handled after CORS)
 app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", req.headers.origin || process.env.URL);
+  res.header("Access-Control-Allow-Origin", req.headers.origin || process.env.URL || "http://127.0.0.1:5173"||"http://localhost:5173"||"https://zubagram-vercel-4tkk.vercel.app");
   res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,PATCH,OPTIONS");
   res.header(
     "Access-Control-Allow-Headers",
