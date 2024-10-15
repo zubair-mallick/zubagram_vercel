@@ -40,8 +40,7 @@ const corsOptions = {
     "Access-Control-Allow-Headers",
   ], // Custom headers allowed
   credentials: true, // Allow cookies and credentials
-  preflightContinue: false, // OPTIONS requests handled automatically
-  optionsSuccessStatus: 204, // For legacy browsers
+  
 };
 
 // Use CORS middleware globally
