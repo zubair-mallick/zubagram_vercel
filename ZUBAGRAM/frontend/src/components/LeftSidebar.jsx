@@ -23,7 +23,7 @@ const LeftSidebar = ({ isSidebarOpen, setIsSidebarOpen }) => {
 
     const logoutHandler = async () => {
         try {
-            const res = await axios.get('zubagram-vercel-4d4f.vercel.app/api/v1/user/logout', { withCredentials: true });
+            const res = await axios.get('https://zubagram-vercel-4tkk.vercel.app/api/v1/user/logout', { withCredentials: true });
             if (res.data.success) {
                 dispatch(setAuthUser(null));
                 dispatch(setSelectedPost(null));

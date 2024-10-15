@@ -35,7 +35,7 @@ const CreatePost = ({ open, setOpen }) => {
     if (imagePreview) formData.append("image", file);
     try {
       setLoading(true);
-      const res = await axios.post('zubagram-vercel-4d4f.vercel.app/api/v1/post/addpost', formData, {
+      const res = await axios.post('https://zubagram-vercel-4tkk.vercel.app/api/v1/post/addpost', formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         },

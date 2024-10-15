@@ -40,7 +40,7 @@ const EditProfile = () => {
         }
         try {
             setLoading(true);
-            const res = await axios.post('zubagram-vercel-4d4f.vercel.app/api/v1/user/profile/edit', formData, {
+            const res = await axios.post('https://zubagram-vercel-4tkk.vercel.app/api/v1/user/profile/edit', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 },
